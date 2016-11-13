@@ -8,10 +8,221 @@ namespace Oblicz_Makro_składniki
 {
     public class Brain
     {
-        double waga, wzrost, wiek, wynik, wynik2, CPM, Bialko, Weglowodany, Tluszcze, KoncowyWynik;
+        double waga, wzrost, wiek, wynik, wynik2, cpm, bialko, weglowodany, tluszcze, koncowyWynik;
         string płeć, ak, rodzaj_budowy_ciala, cel;
         double[] mnoznik_aktywnosci = { 1.0, 1.2, 1.4, 1.6, 1.8, 2.0 };
-        string kolor;
+        bool is_men;
+        #region my_properties
+  
+
+        public double Waga
+        {
+            get
+            {
+                return waga;
+            }
+
+            set
+            {
+                waga = value;
+            }
+        }
+
+        public double Wzrost
+        {
+            get
+            {
+                return wzrost;
+            }
+
+            set
+            {
+                wzrost = value;
+            }
+        }
+
+        public double Wiek
+        {
+            get
+            {
+                return wiek;
+            }
+
+            set
+            {
+                wiek = value;
+            }
+        }
+
+        public double Wynik
+        {
+            get
+            {
+                return wynik;
+            }
+
+            set
+            {
+                wynik = value;
+            }
+        }
+
+        public double Wynik2
+        {
+            get
+            {
+                return wynik2;
+            }
+
+            set
+            {
+                wynik2 = value;
+            }
+        }
+
+        public double CPM
+        {
+            get
+            {
+                return cpm;
+            }
+
+            set
+            {
+                cpm = value;
+            }
+        }
+
+        public double Bialko
+        {
+            get
+            {
+                return bialko;
+            }
+
+            set
+            {
+                bialko = value;
+            }
+        }
+
+        public double Weglowodany
+        {
+            get
+            {
+                return weglowodany;
+            }
+
+            set
+            {
+                weglowodany = value;
+            }
+        }
+
+        public double Tluszcze
+        {
+            get
+            {
+                return tluszcze;
+            }
+
+            set
+            {
+                tluszcze = value;
+            }
+        }
+
+        public double KoncowyWynik
+        {
+            get
+            {
+                return koncowyWynik;
+            }
+
+            set
+            {
+                koncowyWynik = value;
+            }
+        }
+
+        public string Płeć
+        {
+            get
+            {
+                return płeć;
+            }
+
+            set
+            {
+                płeć = value;
+            }
+        }
+
+        public string Ak
+        {
+            get
+            {
+                return ak;
+            }
+
+            set
+            {
+                ak = value;
+            }
+        }
+
+        public string Rodzaj_budowy_ciala
+        {
+            get
+            {
+                return rodzaj_budowy_ciala;
+            }
+
+            set
+            {
+                rodzaj_budowy_ciala = value;
+            }
+        }
+
+        public string Cel
+        {
+            get
+            {
+                return cel;
+            }
+
+            set
+            {
+                cel = value;
+            }
+        }
+
+        public double[] Mnoznik_aktywnosci
+        {
+            get
+            {
+                return mnoznik_aktywnosci;
+            }
+
+            set
+            {
+                mnoznik_aktywnosci = value;
+            }
+        }
+
+        public bool Is_men
+        {
+            get
+            {
+                return is_men;
+            }
+
+            set
+            {
+                is_men = value;
+            }
+        }
+        #endregion
 
         public bool ustaw_wage(string _waga)
         {
@@ -35,7 +246,7 @@ namespace Oblicz_Makro_składniki
             bool Is_Success = false;
             try
             {
-                wzrost = Convert.ToDouble(_wzrost);
+                Wzrost = Convert.ToDouble(_wzrost);
                 Is_Success = true;
             }
             catch (Exception e)
@@ -51,7 +262,7 @@ namespace Oblicz_Makro_składniki
             bool Is_Success = false;
             try
             {
-                wiek = Convert.ToDouble(_wiek);
+                Wiek = Convert.ToDouble(_wiek);
                 Is_Success = true;
             }
             catch (Exception e)
@@ -72,38 +283,24 @@ namespace Oblicz_Makro_składniki
             return płeć;
         }*/
 
-        public string Płeć
-        {
-            get
-            {
-                return płeć;
-            }
-            set
-            {
-                płeć = value;
-            }
-        }
+       
 
-        public double Waga
-        {
-            get
-            {
-                return waga;
-            }
-
-            set
-            {
-                waga = value;
-            }
-        }
-
-        public void pobierz_stringi(string _waga, string _wzrost, string _wiek, string _płeć)
+        public void pobierz_stringi(string _waga, string _wzrost, string _wiek, int _płeć)
         {
             try
             {
                 Waga = Convert.ToDouble(_waga);
-                wzrost = Convert.ToDouble(_wzrost);
-                wiek = Convert.ToDouble(_wiek);
+                Wzrost = Convert.ToDouble(_wzrost);
+                Wiek = Convert.ToDouble(_wiek);
+
+                if (_płeć == 1)
+                {
+                    is_men = true;
+                }
+                else
+                {
+                    is_men = false;
+                }
             }
 
             catch (Exception e)
@@ -114,64 +311,64 @@ namespace Oblicz_Makro_składniki
 
         public void Ustaw_wynik(double _wynik)
         {
-            wynik = _wynik;
+            Wynik = _wynik;
         }
 
         public double Zwroc_wynik()
         {
-            wynik = 66.47 + (13.75 * Waga) + (5 * wzrost) - (6.75 * wiek);
-            return wynik;
+            Wynik = 66.47 + (13.75 * Waga) + (5 * Wzrost) - (6.75 * Wiek);
+            return Wynik;
         }
 
         public double Zwroc_wynik2()
         {
-            wynik2 = 665.09 + (9.56 * Waga) + (1.85 * wzrost) - (4.67 * wiek);
-            return wynik2;
+            Wynik2 = 665.09 + (9.56 * Waga) + (1.85 * Wzrost) - (4.67 * Wiek);
+            return Wynik2;
         }
 
         public void Ustaw_ak(string _ak)
         {
-            ak = _ak;
+            Ak = _ak;
         }
 
         public string Zwroc_ak()
         {
-            return ak;
+            return Ak;
         }
 
         public double Zwroc_CalkowitaPrzeminaMaterii(int _ak2)
         {
             int index_tablicy = _ak2 - 1;
-            if (wynik > wynik2)
+            if (Is_men)
             {
-                CPM = wynik * mnoznik_aktywnosci[index_tablicy];
+                CPM = Wynik * Mnoznik_aktywnosci[index_tablicy];
                 return CPM;
             }
             else
             {
-                CPM = wynik2 * mnoznik_aktywnosci[index_tablicy];
+                CPM = Wynik2 * Mnoznik_aktywnosci[index_tablicy];
                 return CPM;
             }
         }
 
         public void Ustaw_rodzaj_budowy_ciala(string _rodzaj_budowy_ciala)
         {
-            rodzaj_budowy_ciala = _rodzaj_budowy_ciala;
+            Rodzaj_budowy_ciala = _rodzaj_budowy_ciala;
         }
 
         public string Zwroc_rodzaj_budowy_ciala()
         {
-            return rodzaj_budowy_ciala;
+            return Rodzaj_budowy_ciala;
         }
 
         public void Ustaw_cel(string _cel)
         {
-            cel = _cel;
+            Cel = _cel;
         }
 
         public string Zwroc_cel()
         {
-            return cel;
+            return Cel;
         }
         
         public double Zwroc_ostateczny_wynik_kcal(int _rodzaj_budowy_ciala2, int _cel2, int _ak2)

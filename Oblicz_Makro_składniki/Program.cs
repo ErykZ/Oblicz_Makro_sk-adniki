@@ -38,7 +38,7 @@ namespace Oblicz_Makro_składniki
             string płeć = Console.ReadLine();
 
             int płeć2 = Convert.ToInt32(płeć);
-            oblicz.pobierz_stringi(waga, wzrost, wiek, płeć);
+            oblicz.pobierz_stringi(waga, wzrost, wiek, płeć2);
             if (płeć2 == 1)
             {
                 Console.WriteLine("Your energy requirements is: " + oblicz.Zwroc_wynik() + "kcal");
