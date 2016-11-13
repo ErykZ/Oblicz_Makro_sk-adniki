@@ -18,7 +18,7 @@ namespace Oblicz_Makro_składniki
             bool Is_Success = false;
             try
             {
-                waga = Convert.ToDouble(_waga);
+                Waga = Convert.ToDouble(_waga);
                 Is_Success = true;
             }
             catch (Exception e)
@@ -84,13 +84,24 @@ namespace Oblicz_Makro_składniki
             }
         }
 
-        
+        public double Waga
+        {
+            get
+            {
+                return waga;
+            }
+
+            set
+            {
+                waga = value;
+            }
+        }
 
         public void pobierz_stringi(string _waga, string _wzrost, string _wiek, string _płeć)
         {
             try
             {
-                waga = Convert.ToDouble(_waga);
+                Waga = Convert.ToDouble(_waga);
                 wzrost = Convert.ToDouble(_wzrost);
                 wiek = Convert.ToDouble(_wiek);
             }
@@ -108,13 +119,13 @@ namespace Oblicz_Makro_składniki
 
         public double Zwroc_wynik()
         {
-            wynik = 66.47 + (13.75 * waga) + (5 * wzrost) - (6.75 * wiek);
+            wynik = 66.47 + (13.75 * Waga) + (5 * wzrost) - (6.75 * wiek);
             return wynik;
         }
 
         public double Zwroc_wynik2()
         {
-            wynik2 = 665.09 + (9.56 * waga) + (1.85 * wzrost) - (4.67 * wiek);
+            wynik2 = 665.09 + (9.56 * Waga) + (1.85 * wzrost) - (4.67 * wiek);
             return wynik2;
         }
 
@@ -233,17 +244,17 @@ namespace Oblicz_Makro_składniki
             int index_tablicy = _ak2 - 1;
             if (index_tablicy <= 1)
             {
-                Bialko = 1.2 * waga;
+                Bialko = 1.2 * Waga;
                 return Bialko;
             }
             else if (index_tablicy <= 3)
             {
-                Bialko = 1.6 * waga;
+                Bialko = 1.6 * Waga;
                 return Bialko;
             }
             else
             {
-                Bialko = 2 * waga;
+                Bialko = 2 * Waga;
                 return Bialko;
             }
             
