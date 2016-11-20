@@ -8,6 +8,20 @@ namespace Makro_składniki_test
     public class BrainTest
     {
         [TestMethod]
+        public void Test_Zwroc_wynik2()
+        {
+            // Arrange
+            Brain oblicz_test = new Brain();
+            oblicz_test.Waga = 59;
+            oblicz_test.Wzrost = 163;
+            oblicz_test.Wiek = 26;
+            // ACT
+            oblicz_test.Zwroc_wynik();
+
+            //Assert
+            Assert.AreEqual(1517.22, oblicz_test.Wynik);
+        }
+        [TestMethod]
         public void Test_Zwroc_wynik()
         {
             // Arrange
